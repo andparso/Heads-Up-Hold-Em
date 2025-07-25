@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Heads‑Up Poker Trainer</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="container">
+      <h1>Heads‑Up Poker Trainer</h1>
+      <!-- Pre‑match setup -->
+      <div id="setup" class="card">
+        <h2>Setup Match</h2>
+        <label for="stackSelect">Stack scenario:</label>
+        <select id="stackSelect">
+          <option value="equal">Equal stacks</option>
+          <option value="short">Short stacks</option>
+          <option value="big">Big stack (player)</option>
+        </select>
+        <br />
+        <label for="opponentSelect">Opponent style:</label>
+        <select id="opponentSelect">
+          <option value="tamayo">Aggressive Caller</option>
+          <option value="weinman">Small‑ball Technician</option>
+          <option value="jorstad">Tank Analyzer</option>
+          <option value="aldemir">Value Hunter</option>
+          <option value="salas">Short‑Stack Gladiator</option>
+        </select>
+        <br />
+        <button id="startBtn">Start Match</button>
+      </div>
+
+      <!-- Pre‑match blurb -->
+      <div id="preMatchBlurb" class="card hidden">
+        <h2>Opponent Profile</h2>
+        <p id="blurbText"></p>
+        <button id="continueBtn">Continue to Deal</button>
+      </div>
+
+      <!-- Game area -->
+      <div id="gameArea" class="hidden">
+        <div id="statusBar">
+          <span id="message"></span>
+        </div>
+        <div id="table">
+          <div id="potInfo">Pot: <span id="potAmount">0</span> chips</div>
+          <div id="communityCards" class="cards"></div>
+          <!-- Opponent area -->
+          <div id="opponentArea" class="playerArea">
+            <h3>Opponent</h3>
+            <div id="opponentStack" class="stack"></div>
+            <div id="opponentCards" class="cards hidden"></div>
+          </div>
+          <!-- Player area -->
+          <div id="playerArea" class="playerArea">
+            <h3>You</h3>
+            <div id="playerStack" class="stack"></div>
+            <div id="playerCards" class="cards"></div>
+          </div>
+        </div>
+        <!-- Action buttons -->
+        <div id="controls">
+          <button id="foldBtn">Fold</button>
+          <button id="checkBtn">Check/Call</button>
+          <button id="allInBtn">All In</button>
+          <div id="raiseControls">
+            <label for="raiseRange">Raise: </label>
+            <input type="range" id="raiseRange" min="0" max="100" value="0" />
+            <span id="raiseValue">0</span>
+            <button id="confirmRaiseBtn">Raise</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Post hand analysis -->
+      <div id="analysisArea" class="card hidden">
+        <h2>Hand Analysis</h2>
+        <div id="analysisContent"></div>
+        <button id="nextHandBtn">Next Hand</button>
+      </div>
+
+      <!-- End game screens -->
+      <div id="endScreen" class="card hidden">
+        <h2 id="endTitle"></h2>
+        <p id="endMsg"></p>
+        <button id="restartBtn">Restart</button>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
